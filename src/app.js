@@ -13,6 +13,7 @@ app.set("views", path.join(__dirname, "/views")); // Define la ubicación de la 
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // Routers
 app.use("/", mainRouter);
