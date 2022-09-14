@@ -1,0 +1,24 @@
+* {
+    text-align: center;
+}
+main{
+    background-color: pink;
+}
+  
+.form-container{
+    border: 1px solid gray;
+    margin: auto;
+    width: 80%;
+}
+  
+.form-container form{
+    padding: 20px;
+}
+
+.field-wrap{
+    margin: 10px ;
+}
+
+.field-wrap label{
+    display: block;
+}

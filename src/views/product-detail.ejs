@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pimienta & sal</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <nav class="ps-top">
+      <div class="ps-bar ps-white ps-padding ps-card ps-nav">
+        <a href="/" class="ps-bar-item ps-button">Pimienta & Sal</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="ps-right ps-hide-small">
+          <a href="/" class="ps-bar-item ps-button">About</a>
+          <a href="/" class="ps-bar-item ps-button">Menu</a>
+          <a href="/products/list" class="ps-bar-item ps-button">Listado</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <div class="ps-content">
+      <div class="wrap-product">
+        <article>
+          <div class="img-container">
+            <img src="/img/principal.jpg" class="img-dish" alt="img-dish">
+          </div>
+          <p>informacion del plato:  </p>
+          <ul>
+            <li>
+                Nombre:
+            </li>
+            <li>
+                Descripcion: 
+            </li>
+            <li>
+                Precio:
+            </li>
+          </ul>
+        </article>
+      </div>
+      <!-- Footer -->
+      <%- include("partials/footer") %> 
+    </div>
+  </body>
+</html>
