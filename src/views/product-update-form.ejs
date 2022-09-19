@@ -36,24 +36,24 @@
 
         <main>
             <h1 class="title">
-              Actulizar el producto:
+              Actualizar el producto: "<%= plato.name %>"
             </h1>
             <div class="form-container">
-                <form action="#"  method="">
+                <form action="/products/edit/<%= plato.id %>?_method=PUT"  method="POST">
                   
                   <div class="field-wrap">
                     <label for="name">Nombre de plato:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" value="<%= plato.name %>" name="name" id="name">
                   </div>
                   
                   <div class="field-wrap">
                     <label for="price">Precio:</label>
-                    <input type="text" name="price" id="price">
+                    <input type="text" value="<%= plato.price %>" name="price" id="price">
                   </div>
                   
                   <div class="field-wrap" >
                     <label for="description">Descripcion:</label>
-                    <textarea name="description" class="" id="description"></textarea>
+                    <textarea name="description" class="" id="description"><%= plato.description %></textarea>
                   </div>
                   
                   <div class="field-wrap">

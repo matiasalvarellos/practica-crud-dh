@@ -7,14 +7,20 @@
     },
     {
         "id": 2,
-        "name": "Risotto",
+        "name": "Risotto de milanesa",
         "description": "Risotto con berenjena y queso de cabra",
-        "price": 800
+        "price": "800"
     },
     {
         "id": 3,
         "name": "Milanesa",
         "price": "500",
         "description": "La mejor milanesa"
+    },
+    {
+        "id": 8,
+        "name": "matias",
+        "price": 123,
+        "description": "qwe"
     }
 ]
