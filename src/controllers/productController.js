@@ -30,12 +30,13 @@ const controller = {
     },
     store: (req, res)=> {
         const data = findAll()
-
+        console.log(req.file);
         const newProduct = {
             id: data.length + 3,
             name: req.body.name,
             price: Number(req.body.price),
-            description: req.body.description
+            description: req.body.description,
+            image: req.file.filename
         }
 
         data.push(newProduct);
@@ -67,6 +68,19 @@ const controller = {
         writeFile(data);
 
         res.redirect("/products/list");
+    },
+    destroy: (req, res) => {
+        const data = findAll();
+        const platoEncontrado = data.findIndex(function(plato){
+            return plato.id == req.params.id
+        })
+
+        data.splice(platoEncontrado, 1)
+
+        writeFile(data);
+
+        res.redirect("/products/list")
+
     }
 }
 

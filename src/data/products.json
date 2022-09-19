@@ -1,13 +1,7 @@
 [
     {
-        "id": 1,
-        "name": "Esparragos",
-        "description": "asdasd",
-        "price": "600"
-    },
-    {
         "id": 2,
-        "name": "Risotto de milanesa",
+        "name": "Risotto",
         "description": "Risotto con berenjena y queso de cabra",
         "price": "800"
     },
@@ -22,5 +16,12 @@
         "name": "matias",
         "price": 123,
         "description": "qwe"
+    },
+    {
+        "id": 6,
+        "name": "milanesa 2",
+        "price": 321,
+        "description": "321",
+        "image": "image1663629090384-.jpg"
     }
 ]
