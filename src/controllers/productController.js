@@ -30,7 +30,7 @@ const controller = {
     },
     store: (req, res)=> {
         const data = findAll()
-        console.log(req.file);
+
         const newProduct = {
             id: data.length + 3,
             name: req.body.name,
@@ -64,6 +64,7 @@ const controller = {
         platoEncontrado.name = req.body.name;
         platoEncontrado.price = req.body.price;
         platoEncontrado.description = req.body.description;
+        platoEncontrado.image = req.file ? req.file.filename : platoEncontrado.image;
 
         writeFile(data);
 
