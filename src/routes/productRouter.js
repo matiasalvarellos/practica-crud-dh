@@ -3,6 +3,9 @@ const router = express.Router()
 const productController = require("../controllers/productController");
 const multer = require('multer');
 const path = require("path");
+const {body} = require("express-validator");
+
+const { createProductValidation } = require('../validations/productsValidation');
 
 const storage = multer.diskStorage({
     destination:(req, file, cb) => {
@@ -14,12 +17,28 @@ const storage = multer.diskStorage({
     } 
 });
 
-const upload = multer({ storage: storage })
+const upload = multer({ 
+    storage: storage, 
+    fileFilter: (req, file, cb)=>{
+        const extensionesAceptadas = ['.jpg', '.png', '.txt'];
+
+        const info = path.extname(file.originalname)
+
+        const result = extensionesAceptadas.includes(info)
+
+        cb(null, result);
+        // //ingresa un archivo valido
+        // cb(null, true)
+
+        // //ingresa un archivo invalido
+        // cb(null, false)
+    } 
+})
 
 router.get("/list", productController.list);
 router.get("/detail/:id", productController.detail);
 router.get("/create", productController.create);
-router.post("/create", upload.single("image"), productController.store);
+router.post("/create", upload.single("image"), createProductValidation, productController.store);
 router.get("/edit/:id", productController.edit);
 router.put("/edit/:id", upload.single("image"), productController.update);
 router.delete("/delete/:id", productController.destroy);

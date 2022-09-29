@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-
+const { validationResult } = require('express-validator');
 function findAll(){
     const jsonData = fs.readFileSync(path.join(__dirname, "../data/products.json"));
     const data = JSON.parse(jsonData);
@@ -29,21 +29,30 @@ const controller = {
         res.render("product-create-form");
     },
     store: (req, res)=> {
-        const data = findAll()
+        const validationErrors = validationResult(req)
+        if(!validationErrors.isEmpty()){
+            res.render("product-create-form", { 
+                errors: validationErrors.array(),
+                errors2: validationErrors.mapped(),
+                old: req.body
+            })
+        }else{
+            const data = findAll()
 
-        const newProduct = {
-            id: data.length + 3,
-            name: req.body.name,
-            price: Number(req.body.price),
-            description: req.body.description,
-            image: req.file.filename
+            const newProduct = {
+                id: data.length + 3,
+                name: req.body.name,
+                price: Number(req.body.price),
+                description: req.body.description,
+                image: req.file.filename
+            }
+
+            data.push(newProduct);
+
+            writeFile(data)
+
+            res.redirect("/products/create");
         }
-
-        data.push(newProduct);
-
-        writeFile(data)
-
-        res.redirect("/products/create");
     },
     edit: (req, res)=>{
         const data = findAll()
