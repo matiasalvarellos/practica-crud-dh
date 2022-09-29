@@ -17,13 +17,14 @@ module.exports = {
             .withMessage('campo description incompleto'),
         body('image')
         .custom(function(value, {req}){
-            return req.file
+            return req.file;
         })
         .withMessage('Campo obligatorio imagen')
         .bail()
         .custom(function(value, {req}){
             const extensionesAceptadas = ['.jpg', '.png', '.txt'];
             const extension = path.extname(req.file.originalname);
+            console.log(extensionesAceptadas.includes(extension))
             return extensionesAceptadas.includes(extension);
         }).withMessage('Imagen invalida')
     ],

@@ -26,12 +26,13 @@ const upload = multer({
 
         const result = extensionesAceptadas.includes(info)
 
-        cb(null, result);
-        // //ingresa un archivo valido
-        // cb(null, true)
+        //Se agrego esta linea de codigo//
+        if(!result){
+            req.file = file;
+        }
+        //------------------------------//
 
-        // //ingresa un archivo invalido
-        // cb(null, false)
+        cb(null, result);
     } 
 })
 
