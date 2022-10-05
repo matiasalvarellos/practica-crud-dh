@@ -1330,3 +1330,7 @@ a {
 .ps-hover-border-pale-blue:hover {
   border-color: #e7ffff !important;
 }
+
+.msg-error{
+  color: red;
+}

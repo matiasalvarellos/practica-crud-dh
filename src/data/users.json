@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "name": "matias",
+        "email": "matias@gmail.com",
+        "password": "$2a$10$3q52g45d/2B0qTf6TptjV.NBWTtgZYpjUR6g8WFQjkQt/xDXHbYa6",
+        "admin": 1
+    }
+]

@@ -1,12 +1,28 @@
-<header class="ps-display-container ps-content ps-wide" id="home">
-    <img
-      class="ps-image"
-      src="/img/header.jpg"
-      alt="Pimienta & Sal"
-      width="1600"
-      height="800"
-    />
-    <div class="ps-display-bottomleft ps-padding-large ps-opacity">
-      <h1 class="ps-xxlarge">Sabores que enamoran</h1>
+<header>
+  <nav class="ps-top">
+    <div class="ps-bar ps-white ps-padding ps-card ps-nav">
+      <a href="/" class="ps-bar-item ps-button">Pimienta & Sal</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="ps-right ps-hide-small">
+        <a href="/about" class="ps-bar-item ps-button">About</a>
+        <a href="/products/list" class="ps-bar-item ps-button">Menu</a>
+        <% if(!locals.usuario){ %>
+          <a href="/users/register" class="ps-bar-item ps-button">Registro</a>
+          <a href="/users/login" class="ps-bar-item ps-button">Login</a>
+        <% }else{ %>
+          <form action="/users/logout" method="post">
+            <button type="submit">Cerrar sesion</button>
+          </form>
+
+          <p>Holaa! <%= usuario.name %></p>
+        <% } %> 
+
+      </div>
     </div>
+  </nav>
+  <div class="ps-display-container ps-content ps-wide" id="home">
+      <div>
+        <h1 class="ps-xxlarge">Sabores que enamoran</h1>
+      </div>
+  </div>
 </header>
